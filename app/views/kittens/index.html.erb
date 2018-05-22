@@ -1,0 +1,27 @@
+<h1>Kittens (<%= @kittens.count %>)</h1><br>
+
+ <table class="table table-bordered table-striped" style="width:90%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Cuteness</th>
+          <th>Softness</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @kittens.each do |kitten| %>
+          <tr>
+            <td><%= link_to kitten.name, kitten %></td>
+            <td><%= kitten.age %></td>
+            <td><%= kitten.cuteness %>
+            <td><%= kitten.softness %></td> 
+            <td><%= link_to "delete", kitten, method: :delete, 
+                                 data: { confirm: "You sure?" } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+<%= link_to "Create a Kitten", new_kitten_path(@kitten) %>
